@@ -1,0 +1,19 @@
+<%- include ../partials/header.ejs %>
+<div class="container-fluid">
+    <div class="container">
+        <div class="card m-auto padding-3rem shadow">
+            <h1 class="text-center">Login</h1>
+            <form action="/login" method="post" class="addForm">
+                <label>Username
+                    <input type="username" name="username" class="form-control" required>
+                </label>
+                <label>Password
+                    <input type="password" name="password" class="form-control" required>
+                </label>
+                
+                <input type="submit" class="btn btn-outline-success" value="Login">
+            </form>
+        </div>
+    </div>
+</div>
+<%- include ../partials/footer.ejs %>

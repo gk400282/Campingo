@@ -1,0 +1,16 @@
+<%- include ../partials/header.ejs %>
+<div class="container-fluid">
+    <div class="container margin-top-adder">
+        <div class="card m-auto padding-3rem shadow">
+            <h1 class="text-center">Add comments for <%=campground.name%></h1>
+            <form action="/campgrounds/<%=campground._id%>/comments" method="post" class="addForm">
+                <label>Comment
+                    <input type="text" name="comment[text]" class="form-control">
+                </label>
+                
+                <input type="submit" class="btn btn-submit">
+            </form>
+        </div>
+    </div>
+</div>
+<%- include ../partials/footer.ejs %>

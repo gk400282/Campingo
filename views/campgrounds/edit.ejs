@@ -1,0 +1,21 @@
+<%- include ../partials/header.ejs %>
+<div class="container-fluid">
+    <div class="container margin-top-adder">
+        <div class="card m-auto padding-3rem shadow">
+            <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="post" class="addForm">
+                <label>Name
+                    <input type="text" name="campground[name]" class="form-control" value="<%=campground.name%>">
+                </label>
+                <label>url
+                    <input type="text" name="campground[url]" class="form-control" value="<%=campground.url%>">
+                </label>
+                <label>Description
+                    <input type="text" name="campground[description]" class="form-control" value="<%=campground.description%>">
+                </label>
+                
+                <input type="submit" class="btn btn-outline-success" value="Save Changes">
+            </form>
+        </div>
+    </div>
+</div>
+<%- include ../partials/footer.ejs %>

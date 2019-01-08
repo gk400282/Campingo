@@ -1,0 +1,92 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    padding-bottom: 2rem;
+}
+.navbar{
+    background-color: lightgrey !important;
+    margin-bottom: 0.5rem;
+}
+.margin-top-adder{
+    margin-top: 10%;
+}
+.imageContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.imageContainer > .card.shadow{
+    width: 18rem;
+}
+@media(max-width: 500px){
+    .imageContainer > .card.shadow{
+    width: 100vw;
+}
+}
+.card{
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+.addForm{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.padding-3rem{
+    padding: 3rem;
+}
+.label{
+    font-weight: bold;
+}
+.card.mb-3{
+    width:50%;
+}
+.font-small{
+    font-size: 0.8em;
+}
+.comment-text{
+    color: grey;
+}
+.card-body{
+    padding: 1rem;
+}
+.comment{
+    padding: 0.5rem 1rem;
+}
+.comment > blockquote > p{
+    margin-bottom: 0;
+}
+.comment-container > div:last-child{
+    margin-bottom: 0.5rem;
+}
+.addForm > input[type="submit"]{
+    margin-top: 1rem;
+}
+#deletion-form{
+    display: inline;
+}
+.comment-container > .card-header > h5{
+    display: inline;
+    margin-bottom: 0px;
+}
+.icon-link{
+    margin-left:0.5em;
+}
+.no-margin-bottom{
+    margin-bottom: 0px;
+}
+.pointer{
+    cursor: pointer;
+}
+.warning{
+    color: #ffc107;
+}
+.danger{
+    color: red;
+}

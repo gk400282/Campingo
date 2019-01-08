@@ -1,0 +1,23 @@
+<%- include ../partials/header.ejs %>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1 class="display-4">These are our campgrounds</h1>
+        <p class="lead">We have a collection of great campgrounds that bring you closer to the nature and soothe you.</p>
+        <a href="/campgrounds/new" class = "btn btn-lg btn-outline-primary">Add new campgrounds</a>
+    </div>
+    
+    <div class="imageContainer">
+        <%data.forEach(function(dataUnit){%>
+        <div class="card shadow">
+          <img class="card-img-top" src=<%=dataUnit.url%> alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%=dataUnit.name%></h5>
+            <a href="/campgrounds/<%=dataUnit._id%>" class="btn btn-secondary">Description</a>
+          </div>
+        </div>
+        <%});%>
+    </div>
+</div>
+
+
+<%- include ../partials/footer.ejs %>
