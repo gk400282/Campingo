@@ -1,9 +1,9 @@
 <%- include ../partials/header.ejs %>
-<div class="container-fluid">
+<div class="container">
     <div class="jumbotron">
         <h1 class="display-4">These are our campgrounds</h1>
         <p class="lead">We have a collection of great campgrounds that bring you closer to the nature and soothe you.</p>
-        <a href="/campgrounds/new" class = "btn btn-lg btn-outline-primary">Add new campgrounds</a>
+        <a href="/campgrounds/new" class = "btn btn-lg btn-outline-success">Add new campgrounds</a>
     </div>
     
     <div class="imageContainer">
@@ -12,7 +12,8 @@
           <img class="card-img-top" src=<%=dataUnit.url%> alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title"><%=dataUnit.name%></h5>
-            <a href="/campgrounds/<%=dataUnit._id%>" class="btn btn-secondary">Description</a>
+            <p class="card-text"><%=`${dataUnit.description.substr(0, 100)}...`%></p>
+            <a href="/campgrounds/<%=dataUnit._id%>" class="btn btn-info">Description</a>
           </div>
         </div>
         <%});%>

@@ -1,5 +1,5 @@
 <%- include ../partials/header.ejs %>
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-md-3">
         <div class="card-header lead">
@@ -18,9 +18,9 @@
       <div class="card mb-4 ml-auto mr-auto">
         <img class="card-img-top" src=<%=campground.url%> alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title"><strong><%= campground.name %></strong><div class="float-right font-small"><em>by <%=campground.author.firstname%> <%=campground.author.lastname%></em></div></h5>
+          <h5 class="card-title"><strong><%= campground.name %></strong><div class="float-right font-small"> <%= `$${campground.price}/night` %></div></h5>
           <p class="card-text"><%= campground.description %></p>
-          
+          <p><em>by <%=`${campground.author.firstname} ${campground.author.lastname}`%></em></p>
           <!--If at least one comment exists then render the comment div-->
           <%if(campground.comments.length > 0){%>
               <div class="card comment-container ml-auto mr-auto">

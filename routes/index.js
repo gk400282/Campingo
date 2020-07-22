@@ -10,7 +10,7 @@ router.use(bodyparser.urlencoded({extended:true}));
 //Common Routes
 //==========
 router.get("/", function(req, res){
-    res.redirect("/campgrounds");
+    res.render("landing");
 });
 //===========
 //Auth routes
@@ -24,10 +24,12 @@ router.post("/register", function(req, res){
     user.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
-            return res.render("authentications/register");
+            req.flash("error", err.message);
+            return res.redirect("/register");
         }
         passport.authenticate("local")(req, res, function(){
             console.log(user);
+            req.flash("success", `Welcome to Campingo ${user.firstname}`);
             res.redirect("/campgrounds");
         });
     });
@@ -42,11 +44,13 @@ router.post("/login", passport.authenticate("local",{
 });
 router.get("/logout", function(req, res){
     req.logout();
+    req.flash("success", "Logged you out!");
     res.redirect("/campgrounds");
 });
-//=========
-//middleware
-//=========
+
+// =========
+// middleware
+// =========
 // function isLoggedIn(req, res, next){
 //     if(req.isAuthenticated()){
 //         return next();

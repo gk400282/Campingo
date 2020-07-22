@@ -2,13 +2,26 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    transition: all 0.2s linear;
 }
 body{
     padding-bottom: 2rem;
 }
 .navbar{
-    background-color: lightgrey !important;
+    background-color: #ffffff00 !important;
     margin-bottom: 0.5rem;
+}
+.navbar-light .navbar-brand {
+    color: rgb(0, 0, 0, 0.7);
+}
+.navbar-light .navbar-brand:hover{
+    color: rgba(0, 0, 0);
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: rgb(0, 0, 0, 0.7);
+}
+.navbar-light .navbar-nav .active>.nav-link:hover, .navbar-light .navbar-nav .nav-link.active:hover, .navbar-light .navbar-nav .nav-link.show:hover, .navbar-light .navbar-nav .show>.nav-link:hover {
+    color: rgba(0, 0, 0);
 }
 .margin-top-adder{
     margin-top: 10%;
@@ -29,7 +42,7 @@ body{
 }
 .card{
     margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     margin-left: 1rem;
 }
 .addForm{
@@ -84,9 +97,33 @@ body{
 .pointer{
     cursor: pointer;
 }
+.default-cursor{
+    cursor: default;
+}
 .warning{
     color: #ffc107;
 }
 .danger{
     color: red;
+}
+/* added by me - */
+.btn-group-lg>.btn, .btn-lg {
+    padding: .5rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+}
+/* - added by me */
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.flashbox{
+    overflow: hidden;
 }

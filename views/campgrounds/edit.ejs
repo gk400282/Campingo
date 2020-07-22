@@ -1,10 +1,13 @@
 <%- include ../partials/header.ejs %>
-<div class="container-fluid">
+<div class="container">
     <div class="container margin-top-adder">
         <div class="card m-auto padding-3rem shadow">
             <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="post" class="addForm">
                 <label>Name
                     <input type="text" name="campground[name]" class="form-control" value="<%=campground.name%>">
+                </label>
+                <label>Price
+                    <input type="number" name="campground[price]" class="form-control" min="0.01" step="0.01" value="<%=campground.price%>">
                 </label>
                 <label>url
                     <input type="text" name="campground[url]" class="form-control" value="<%=campground.url%>">

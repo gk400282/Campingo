@@ -9,9 +9,9 @@
         <link rel="stylesheet" href="/stylesheets/styles.css">
     </head>
     <body>
-      <div class="container-fluid">
+      <div class="container">
         <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light margin-bottom-adder">
-          <a class="navbar-brand" href="/">Campin<strong>go</strong>.com</a>
+          <a class="navbar-brand" href="/">Campin<strong style="color:#28a745;">go</strong>.com</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
@@ -19,7 +19,7 @@
               <ul class="navbar-nav ml-auto">
               <%if(!thisUser){%>
               <li class="nav-item active">
-                <a class="nav-link" href="/campgrounds">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="/register">Sign Up<span class="sr-only">(current)</span></a>
@@ -29,7 +29,7 @@
               </li>
               <%}else{%>
               <li class="nav-item active">
-                <a class="nav-link" href="/campgrounds"><strong>Hi <%=thisUser.firstname%></strong> <span class="sr-only">(current)</span></a>
+                <a class="nav-link default-cursor" ><strong>Hi <%=thisUser.firstname%></strong> <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="/campgrounds">Home <span class="sr-only">(current)</span></a>
@@ -41,6 +41,17 @@
             </ul>
           </div>
         </nav>
+        <% if(error && error.length > 0){ %>
+          <div class="alert alert-danger flashbox" role="alert">
+            <%= error %>
+          </div>          
+        <% } %>
+        <% if(success && success.length > 0){ %>
+          <div class="alert alert-success flashbox" role="alert">
+            <%= success %>
+          </div>          
+        <% } %>
+
       </div>
         
         
