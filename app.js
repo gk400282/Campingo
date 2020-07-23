@@ -27,7 +27,7 @@ app.use(flash());
 
 
 //connecting to mongoose database
-mongoose.connect(`mongodb+srv://rOLDmARGRUV:${process.env.MONGODB_USERPASS}@cluster0.m2e1q.mongodb.net/<dbname>?retryWrites=true&w=majority`, { 
+mongoose.connect(`mongodb+srv://rOLDmARGRUV:${process.env.MONGODB_USERPASS}@cluster0.7mi6o.mongodb.net/<dbname>?retryWrites=true&w=majority`, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
     useFindAndModify: false, 
