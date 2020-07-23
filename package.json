@@ -1,7 +1,7 @@
 {
-  "name": "campgrounds",
+  "name": "campingo",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Clone the repository(git clone ...), or download the zip in your local machine.\r - Install dependencies(npm install)\r - Install MongoDB, add the bin folder - from the installation directory - to path (to set mongod and mongo shell as environment variable).\r - Change the port to listen to in App.js to 8080.(app.listen(8080, function(){...}); )\r - Start the server from the yelpcamp folder with - npm run start",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,5 +21,15 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gk400282/yelpcamp.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/gk400282/yelpcamp/issues"
+  },
+  "homepage": "https://github.com/gk400282/yelpcamp#readme"
 }
