@@ -17,6 +17,9 @@ var commentRoutes    = require("./routes/comments");
 var indexRoutes      = require("./routes/index");
 // seedDB(); //seeding the database
 
+//dotenv configuration
+require("dotenv").config();
+
 //Connecting flash
 app.use(flash());
 
@@ -47,7 +50,16 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/", indexRoutes);
 
 //connecting to mongoose database
-mongoose.connect("mongodb://localhost/yelpcamp", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect(`mongodb+srv://rOLDmARGRUV:${process.env.MONGODB_USERPASS}@cluster0.m2e1q.mongodb.net/<dbname>?retryWrites=true&w=majority`, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    useFindAndModify: false, 
+    useCreateIndex: true 
+}).then(() => {
+    console.log("Connected to Database");
+}).catch(err => {
+    console.log("Error: " + err.message);
+});
 
 //telling app to use body-parser
 app.use(bodyParser.urlencoded({extended:true}));
