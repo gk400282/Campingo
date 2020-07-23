@@ -9,7 +9,9 @@ var express    = require("express"),
     comment = require("./models/comment"),
     seedDB     = require("./seed"),
     user = require("./models/user"),
-    methodOverride = require("method-override")
+    methodOverride = require("method-override"),
+    expressSession = require("express-session"),
+    connectMongo   = require("connect-mongo")(expressSession)
 
 //requiring various routes   
 var campgroundRoutes = require("./routes/campgrounds");
@@ -23,11 +25,26 @@ require("dotenv").config();
 //Connecting flash
 app.use(flash());
 
+
+//connecting to mongoose database
+mongoose.connect(`mongodb+srv://rOLDmARGRUV:${process.env.MONGODB_USERPASS}@cluster0.m2e1q.mongodb.net/<dbname>?retryWrites=true&w=majority`, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    useFindAndModify: false, 
+    useCreateIndex: true 
+}).then(() => {
+    console.log("Connected to Database");
+}).catch(err => {
+    console.log("Error: " + err.message);
+});
+
+
 //Passport Configuration
-app.use(require("express-session")({
+app.use(expressSession({
     secret: "You are always on my mind P",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new connectMongo({ mongooseConnection: mongoose.connection })
 }));
 app.use(methodOverride("_method"));
 app.use(passport.initialize());
@@ -48,18 +65,6 @@ app.use(function(req, res, next){
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/", indexRoutes);
-
-//connecting to mongoose database
-mongoose.connect(`mongodb+srv://rOLDmARGRUV:${process.env.MONGODB_USERPASS}@cluster0.m2e1q.mongodb.net/<dbname>?retryWrites=true&w=majority`, { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true, 
-    useFindAndModify: false, 
-    useCreateIndex: true 
-}).then(() => {
-    console.log("Connected to Database");
-}).catch(err => {
-    console.log("Error: " + err.message);
-});
 
 //telling app to use body-parser
 app.use(bodyParser.urlencoded({extended:true}));
