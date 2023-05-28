@@ -1,13 +1,13 @@
-<%- include ../partials/header.ejs %>
+<%- include('../partials/header') %>
 <div class="container">
     <div class="jumbotron">
         <h1 class="display-4">These are our campgrounds</h1>
-        <p class="lead">We have a collection of great campgrounds that bring you closer to the nature and soothe you.</p>
+        <p class="lead">We have a collec  tion of great campgrounds that bring you closer to the nature and soothe you.</p>
         <a href="/campgrounds/new" class = "btn btn-lg btn-outline-success">Add new campgrounds</a>
     </div>
     
     <div class="imageContainer">
-        <%data.forEach(function(dataUnit){%>
+        <%data.forEach(async function(dataUnit){%>
         <div class="card shadow">
           <img class="card-img-top" src=<%=dataUnit.url%> alt="Card image cap">
           <div class="card-body">
@@ -21,4 +21,4 @@
 </div>
 
 
-<%- include ../partials/footer.ejs %>
+<%- include('../partials/footer') %>
