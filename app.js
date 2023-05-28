@@ -47,7 +47,7 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/", indexRoutes);
 
 //connecting to mongoose database
-mongoose.connect("mongodb://localhost/yelpcamp", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect("mongodb://127.0.0.1:27017/local", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 //telling app to use body-parser
 app.use(bodyParser.urlencoded({extended:true}));
@@ -58,6 +58,6 @@ app.use(express.static(__dirname+"/public"));
 //telling app to consider files in the views directory to be of ejs type
 app.set("view engine","ejs");
 
-app.listen(process.env.PORT || 3000, process.env.IP, function(){
-    console.log("Server is listening at http://localhost:3000/");
+app.listen(process.env.PORT || 8080, process.env.IP, function(){
+    console.log("Server is listening at http://localhost:8080/");
 });
